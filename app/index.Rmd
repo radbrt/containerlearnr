@@ -1,0 +1,51 @@
+---
+title: "Titanic interactive learning"
+output: learnr::tutorial
+runtime: shiny_prerendered
+# editor_options:
+#   preview: viewer
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(learnr)
+library(gradethis)
+tutorial_options(exercise.checker = gradethis::grade_learnr)
+```
+
+## Velkommen til R
+
+I denne interaktive tutorialen skal vi gå gjennom hvordan å tilrettelegge og analysere det berømte Titanic datasettet. Vi kommer til å bruke tidyverse-pakkene, så det første vi må gjøre er å laste inn tidyverse med `library` funksjonen.
+
+```{r load_tidyverse, exercise=TRUE}
+
+```
+
+```{r load_tidyverse-hint-1}
+
+library(tidverse)
+
+```
+
+
+```{r load_tidyverse-check}
+grade_conditions(
+  pass_if(~ "tidyverse" %in% .packages(TRUE) )
+)
+```
+
+
+## Lese datasett
+
+Deretter må vi lese inn datasettet, som er en kommaseparert csv-fil, til en ny variabel som vi kaller `titanic`. Filen ligger i undermappen mappen `data` og heter `titanic.csv`. Å lese kommaseparerte csv-filer kan vi gjøre enkelt med `read_csv` funksjonen. Sjekk til slutt hvor mange rader du får ved hjelp av funksjonen `nrow`
+
+```{r read_data, exercise=TRUE}
+
+```
+
+```{r read_data-check}
+grade_conditions(
+  pass_if(~ .result == 891)
+)
+```
+
